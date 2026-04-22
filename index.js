@@ -26,7 +26,7 @@ try {
 // Use express.json() middleware to parse JSON request bodies
 app.use(express.json());
 
-app.use(cors({ credentials: true , origin: "http://localhost:5173"}))
-// app.use(cors({ credentials: true , origin: `https://expense-tracker-app-sigma-ecru.vercel.app`}));
+// app.use(cors({ credentials: true , origin: "http://localhost:5173"}))
+app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
 app.use('/be-hotel-booking/', mainRouter);
 

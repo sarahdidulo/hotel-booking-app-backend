@@ -27,7 +27,6 @@ try {
 app.use(express.json());
 
 // app.use(cors({ credentials: true , origin: "http://localhost:5173"}))
-//credentials: true ,
-app.use(cors({origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
+app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
 app.use('/be-hotel-booking/', mainRouter);
 

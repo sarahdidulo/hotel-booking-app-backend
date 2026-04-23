@@ -15,7 +15,7 @@ app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-r
 
 try {
     mongoose.connection.on('connected', () => console.log('Database Connected'));
-    await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`, 
+    await mongoose.connect(`${process.env.MONGODB_URI}`, 
         {
             useNewUrlParser: true,
             useUnifiedTopology: true

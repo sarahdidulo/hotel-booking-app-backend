@@ -9,18 +9,9 @@ const app = express();
 
 const PORT = 4000;
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
-
 try {
     mongoose.connection.on('connected', () => console.log('Database Connected'));
-    await mongoose.connect(`${process.env.MONGODB_URI}`, 
-        {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }
-    );
+    await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`);
     app.listen(4000, function () {
         console.log(`Listening on PORT:${PORT}`);
     });
@@ -30,10 +21,12 @@ try {
 }
 
 // Enable CORS for the client origin
-// app.use(cors({ credentials: true , origin: "http://localhost:5173"}))
-
+//changed - app.use(cors({ origin: "http://localhost:5173"}));
+// origin: "http://127.0.0.1:5173"
 // Use express.json() middleware to parse JSON request bodies
 // app.use(cookieParser());
 
+app.use(express.json());
+app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
 app.use('/be-hotel-booking/', mainRouter);
 

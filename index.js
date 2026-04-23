@@ -25,6 +25,7 @@ try {
 // origin: "http://127.0.0.1:5173"
 // Use express.json() middleware to parse JSON request bodies
 // app.use(cookieParser());
+//test
 
 app.use(express.json());
 app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));

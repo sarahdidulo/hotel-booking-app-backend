@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import 'dotenv/config';
+import cookieParser from 'cookie-parser';
 
 import mainRouter from "./src/routes/index.js";
 
@@ -28,7 +29,8 @@ try {
 //test
 
 app.use(express.json());
-app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
-// app.use(cors({ credentials: true , origin: `http://localhost:5173`}));
+// app.use(cors({ credentials: true , origin: `https://hotel-booking-app-frontend-rho.vercel.app`}));
+app.use(cookieParser());
+app.use(cors({ credentials: true , origin: `http://localhost:5173`}));
 app.use('/be-hotel-booking/', mainRouter);
 

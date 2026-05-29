@@ -1,13 +1,14 @@
 import express from "express";
 import { createRoom, allRooms, searchRoom, updateRoom, deleteRoom } from "./../controllers/roomController.js";
+import { verifyToken } from "../controllers/authController.js";
 const router = express.Router();
 
-router.post("/create-room", createRoom);
+router.post("/create-room", verifyToken, createRoom);
 // router.post("/upload", upload.single('file'), uploadFile);
 router.get("/all-rooms", allRooms);
 router.get("/search-room/:id", searchRoom);
-router.post("/update-room/:id", updateRoom);
-router.delete("/delete-room/:id", deleteRoom);
+router.post("/update-room/:id", verifyToken, updateRoom);
+router.delete("/delete-room/:id", verifyToken, deleteRoom);
 export default router; 
 
 // import multer from "multer";
